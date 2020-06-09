@@ -15,7 +15,7 @@ function moveMouse() {
   var h2wRatio = (height - position.y) / (width - position.x);
 
   for (var x = position.x, y = position.y; x < width; x++, y = y + h2wRatio) {
-    robot.moveMouse(x, y);
+    robot.moveMouseSmooth(x, y);
   }
 }
 
@@ -75,20 +75,41 @@ ipcMain.on("typeName", function (event, arg) {
   event.sender.send("btnclick-task-finished", "yes");
 });
 
-ipcMain.on("decBrightness", function (event, arg) {
+ipcMain.on("decBrightness", decBrightness);
+
+function decBrightness() {
   robot.keyTap("lights_mon_down");
-  event.sender.send("btnclick-task-finished", "yes");
-});
+}
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-ipcMain.on("incBrightness", function (event, arg) {
+ipcMain.on("incBrightness", incBrightness);
+
+function incBrightness() {
   robot.keyTap("lights_mon_up");
-  event.sender.send("btnclick-task-finished", "yes");
-});
+}
 
 ipcMain.on("alphabetPress", function (event, arg) {
   typeName(arg);
-  event.sender.send("btnclick-task-finished", "yes");  
-})
+  event.sender.send("btnclick-task-finished", "yes");
+});
+
+ipcMain.on("axes", function (event, axes) {
+  let { x, y } = robot.getMousePos();
+  let xOffset = axes[0] * 15,
+    yOffset = axes[1] * 15;
+  robot.dragMouse(x + xOffset, y + yOffset);
+
+  let xScroll = axes[2],
+    yScroll = -1 * axes[3];
+  robot.scrollMouse(xScroll, yScroll);
+});
+
+ipcMain.on("buttons", function (event, buttons) {
+  let state = buttons[0] ? "down" : "up";
+  let button = buttons[7] ? "right" : "left";
+  if (buttons[5]) incBrightness();
+  if (buttons[4]) decBrightness();
+  robot.mouseToggle(state, button);
+});
