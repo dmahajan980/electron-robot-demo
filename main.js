@@ -11,10 +11,10 @@ function moveMouse() {
   var screenSize = robot.getScreenSize();
   var height = screenSize.height;
   var width = screenSize.width;
-  var h2wRatio = height / width;
+  var position = robot.getMousePos();
+  var h2wRatio = (height - position.y) / (width - position.x);
 
-  for (var x = 0; x < width; x++) {
-    var y = h2wRatio * x;
+  for (var x = position.x, y = position.y; x < width; x++, y = y + h2wRatio) {
     robot.moveMouse(x, y);
   }
 }
