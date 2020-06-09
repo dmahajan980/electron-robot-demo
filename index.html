@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Electron Test</title>
+  </head>
+  <body>
+    <h1>Functional Parts</h1>
+
+    <button id="mouse-button">Move Mouse</button>
+    <button id="fill-text">Type "Divyanshu"</button><br><br>
+    <button id="incBrightness">Increase Screen Brightness</button>
+    <button id="decBrightness">Decrease Screen Brightness</button><br><br>
+    <button class="alphabet">A</button>
+    <button class="alphabet">B</button>
+    <button class="alphabet">C</button>
+    <button class="alphabet">D</button><br><br>
+    <input type="text">
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>
