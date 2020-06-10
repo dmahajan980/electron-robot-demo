@@ -25,7 +25,7 @@ npm install
 electron .
 ```
 
-## Usage
+## Controls
 
 <p align="center">
   <img src="https://i.imgur.com/djLxzSD.png">
@@ -41,8 +41,8 @@ Below is the list of buttons with their corresponding functionalities specified 
 | `Button 0` | Left Click on Mouse |
 | `Button 0` + `Button 7` | Right Click on Mouse |
 | `Hold Button 0` + `Left Joystick` | Drag Joystick to Select |
-| `Button 2` | Decrease Screen Brightness |
-| `Button 3` | Increase Screen Brightness |
+| `Button 4` | Decrease Screen Brightness |
+| `Button 5` | Increase Screen Brightness |
 
 The buttons on the app such as 'A', 'B', 'C'. 'D', and 'Type "Divyanshu"' enter the corresponding character or set of characters in a text or input area. It has been set to delay for 3 seconds so that the user can select or focus on the input area before it starts typing.
 

@@ -109,7 +109,7 @@ ipcMain.on("axes", function (event, axes) {
 ipcMain.on("buttons", function (event, buttons) {
   let state = buttons[0] ? "down" : "up";
   let button = buttons[7] ? "right" : "left";
-  if (buttons[3]) incBrightness();
-  if (buttons[2]) decBrightness();
+  if (buttons[5]) incBrightness();
+  if (buttons[4]) decBrightness();
   robot.mouseToggle(state, button);
 });
