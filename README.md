@@ -48,5 +48,5 @@ The buttons on the app such as 'A', 'B', 'C'. 'D', and 'Type "Divyanshu"' enter 
 
 ## License
 
-[CC0 1.0 (Public Domain)](LICENSE.md)
+[CC0 1.0 (Public Domain)](LICENSE.md)<br>
 [MIT License (Jason Stallings)](https://github.com/octalmage/robotjs/blob/master/LICENSE.md)
